@@ -1,58 +1,122 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "The Frozen Wasteland",
+    "Credits": "Created by Matthew Kin (mkin@ucsc.edu).",
+    "InitialLocation": "Campground",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Campground": {
+            "Body": "You slowly awaken your eyes, your entire body shivering with your hands closed into fists. You feel the energy sapped from your body as you attempt to stay alive. You look around only to see a tent, an unlit campfire, and a frozen forest engulfing you.",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "Check Tents",
+                    "Target": "Tents"
+                },
+                {
+                    "Text": "Check Campfire",
+                    "Target": "Campfire"
+                }, 
+                {
+                    "Text": "Check Forest",
+                    "Target": "Forest"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+
+
+        "Tents": {
+            "Body": "Inside the tents you find what looks like a bunch of sleeping bags buried in snow. There are tear marks ripping through the cloth of the tent. There appears to be a small box with a lock on it",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Return To Campground",
+                    "Target": "Campground"
+                }, 
+                {
+                    "Text": "Open Box",
+                    "Target": "Box",
+                    "RequiredItem": "Key"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
+                    "Text": "Observe Sleeping Bags",
+                    "Target": "SleepingBags"
                 }
             ]
         },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
+
+        "SleepingBags": {
+            "Body": "You dust of the snow to find 3 Sleeping Bags. There is a green one with a label 5, A blue one with a label 4, and a red one with a label 9.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Porter"
-                },
+                    "Text": "Return to Tent",
+                    "Target": "Tents"
+                }
+                
+            ]
+        },
+
+        "Box": {
+            "Body": "You place the key into the keyhole and are able to open the box. There seems to be a lock that needs a 3 digit code",
+            "LocationSpecific": "PuzzleBox",
+            "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
+                    "Text": "Put Box Back",
+                    "Target": "Tent"
                 }
             ]
         },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
+
+        "FlashlightFound": {
+            "Body": "Inside, a flashlight can be found.",
+            "Item": "Flashlight",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Text": "Return To Campground",
+                    "Target": "Campground"
+                }
+            ]
+        },
+
+        "Campfire": {
+            "Body": "The fire is dead as a pile of charcoal sits in front of you. You notice a small shiny object buried under a chunk of the ash.",
+            "Choices": [
+                {
+                    "Text": "Return to Campground",
+                    "Target": "Campground"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "Investigate Shiny Object",
+                    "Target" : "KeyFound"
+                }
+            ]
+        },
+
+        "KeyFound": {
+            "Body": "You discover a rusty old key.",
+            "Item": "Key",
+            "Choices": [
+                {
+                    "Text": "Return to Campground",
+                    "Target": "Campground"
+                }
+            ]
+
+            
+        },
+
+        "Forest": {
+            "Body": "The forest is cold. You know there is a village nearby, but to get there you would need a Flashlight.",
+            "Choices": [
+                {
+                    "Text": "Return to Campground",
+                    "Target": "Campground"
+                },
+                {
+                    "Text": "Head to Village",
+                    "Target": "Beyond",
+                    "RequiredItem": "Flashlight"
                 }
             ]
         },
         "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+            "Body": "You find a small village that welcome you with open arms. Yippee!"
         }
     }
 }
